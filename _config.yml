@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: sodatea 的个人博客
+title: sodatea 的博客
 subtitle:
 description:
 author: sodatea
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: apollo
+theme: sleepless
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
@@ -74,10 +74,10 @@ deploy:
 
 theme_config:
     menu:
-        博客: /
-        微博: http://weibo.com/2451315930
-        rss: /atom.xml
-        github: https://github.com/sodatea
+        Blog: /
+        Weibo: http://weibo.com/2451315930
+        GitHub: https://github.com/sodatea
+        RSS: /atom.xml
 
     # google-analytics:
     ga:
