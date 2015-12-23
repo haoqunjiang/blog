@@ -79,6 +79,8 @@ theme_config:
         GitHub: https://github.com/sodatea
         RSS: /atom.xml
 
+    duoshuo: sodatea
+
     # google-analytics:
     ga:
     # baidu-analytics:
