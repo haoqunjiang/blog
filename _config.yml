@@ -79,9 +79,10 @@ theme_config:
         GitHub: https://github.com/sodatea
         RSS: /atom.xml
 
+    disable_mathjax: false
+
     duoshuo: sodatea
+    duoshuo_embed_url: https://nzxbwjjh8.qnssl.com/duoshuo_embed.js
 
     # google-analytics:
     ga:
-    # baidu-analytics:
-    ba:
