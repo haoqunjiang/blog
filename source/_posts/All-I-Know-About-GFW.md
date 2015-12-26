@@ -10,6 +10,8 @@ tags:
 4. 端口封锁，针对 OpenVPN，SSH，shadowsocks 等，有用到 DPI，多次换端口后封 IP
 5. 关键字封锁，利用深度包检测（DPI），是主要方法。可用全站 https 应对，不过 GFW 因为无法识别 https，所以会针对所有 https 连接进行随机的中断
 
+<!-- more -->
+
 关于 GFW 的更多技术细节可以参见本文的参考链接
 
 ## GFW 的设备
