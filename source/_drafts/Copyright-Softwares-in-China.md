@@ -1,4 +1,4 @@
-title: 在中国使用正版软件
+title: 如何遵守正版软件的使用条款
 tags:
 ---
 
@@ -15,7 +15,7 @@ tags:
 
 官方对家庭版的说明是「家人和朋友」合用，所以和网友团购家庭版是合乎条款的，和你一起分享授权的并不一定要是家人才行。
 
-关于是否可以用于工作：[TODO]
+[不可以用于工作](https://blogs.office.com/2013/02/05/top-office-365-questions-answered/)。
 
 阿里为员工提供了 Office 2011 for Mac 以及 Office for Windows 的企业授权（需审批）。
 
