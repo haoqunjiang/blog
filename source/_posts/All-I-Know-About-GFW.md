@@ -77,6 +77,15 @@ tags:
 
         所以建议使用 AliCloud BGP 线路转发
 
+8. TCP 加速（防丢包）（**不建议使用**）
+
+    1. [net-speeder](https://github.com/snooda/net-speeder)，开源，简单粗暴地通过两倍发包来防止丢包，对丢包严重的网络有一定改善作用，不过有一些缺点：
+        1. 双倍发包会造成流量翻倍
+        2. net-speeder 会造成 pptpd 等不支持双倍发包的网络软件无法正常使用
+        3. 对小文件加速效果不明显
+        4. 这种 TCP 优化机制一直存在争议，因为它实际实际上加剧了网络的拥堵，浪费掉了大量没必要的带宽
+    2. [锐速](http://serverspeeder.com/)，比较老牌的 TCP 加速服务，闭源，比 net-speeder 智能，但不支持所有 VPS，闭源还要求 root 权限也让人有点不放心。而且，仍然会增加流量消耗，仍然被认为是不道德的，参见 shadowsocks 作者 clowwindy 在 V2EX 上的[评论](http://v2ex.com/t/164883?p=1#r_1742730)
+
 ## 收费翻墙服务
 
 **不建议使用免费服务**
