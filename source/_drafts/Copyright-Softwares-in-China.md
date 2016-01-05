@@ -1,5 +1,5 @@
-title: 如何遵守正版软件的使用条款
-tags:
+title: 关于正确遵守正版软件的使用条款的几个 tips
+tags: copyright
 ---
 
 在官方渠道付费购买的软件不一定就是正版，要遵守使用条款才是。
@@ -9,7 +9,7 @@ tags:
 
 这个官方并没有在国内售卖，必须在国外购买和激活。根据两条官方解答：[using the cloud in a unsupported country](https://forums.adobe.com/thread/1023313) 以及 [License Status Check in Non-Subscription Country](https://forums.adobe.com/message/4740738#4740738)，这是不违反授权条款的。
 
-当然，要是你在阿里工作的话，公司有从官方渠道购得的批量授权，可以在工作电脑上使用阿里软件管家申请和下载（需主管审批）。
+当然，要是你在阿里工作的话，公司有从官方渠道购得的批量授权，可以在工作电脑上使用阿里软件管家申请和下载。
 
 ## Office 365 家庭版
 
@@ -17,7 +17,7 @@ tags:
 
 [不可以用于工作](https://blogs.office.com/2013/02/05/top-office-365-questions-answered/)。
 
-阿里为员工提供了 Office 2011 for Mac 以及 Office for Windows 的企业授权（需审批）。
+阿里为员工提供了 Office 2011 for Mac 以及 Office for Windows 的企业授权。
 
 ## JetBrain 旗下工具的个人版
 
@@ -37,3 +37,5 @@ tags:
 
 都是终身授权，毕业后可继续使用，但部分不适用于商业用途。
 但是麻烦的是，不同途径购买的软件对于教育授权的解释也有矛盾之处，我不清楚是不同经销商授权协议不同还是网站工作人员搞错了还是他们根本就没把授权放在心上。在 Adobe 的[官方 FAQ](http://helpx.adobe.com/cn/x-productkb/policy-pricing/education-faq.html)上，教育授权可被用于商业用途，但如上所述，校园先锋的 FAQ 又是相反的说法。
+
+
