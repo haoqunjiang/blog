@@ -1,10 +1,7 @@
 title: checkbox 元素的 click 事件回调里的坑
 date: 2015-09-25 16:04:42
-tags:
+tags: DOM, W3C
 ---
-
-
-## `click` 回调中 `checked` 的取值
 
 最近在处理 `input[type="checkbox"]` 的 `click` 事件时，发现了一些问题。
 如果在回调函数中用了 `event.preventDefault`，那么函数中获取到的 `this.checked` 的值会有问题，Chrome/Firefox/Safari/Opera 获取到的是点击前的值，IE/Edge 下有时改变有时不变，具体 demo 可以[看这里](https://jsbin.com/purado/edit?html,js,output)。
@@ -34,3 +31,5 @@ tags:
 
 
 补充：[jQuery 1.9 中通过提前触发 click 事件然后再回调 fix 了这个问题](https://bugs.jquery.com/ticket/3827)
+
+

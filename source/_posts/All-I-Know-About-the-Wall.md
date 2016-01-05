@@ -1,6 +1,6 @@
 title: GFW 封锁方式以及翻墙手段汇总
 date: 2015-12-23 17:19:29
-tags:
+tags: GFW
 ---
 
 ## GFW 的封锁方法
@@ -30,7 +30,7 @@ tags:
 8. SSH，虽然传输安全，但握手阶段特征太明显，会被监控流量和连接数，所以基本只能用一小会儿，一般需要数小时重连一次。2012 年 GFW 加入 DPI 功能之后被封锁得更为严重了，一旦有 HTTP 流量传输就会被墙
 9. VPN，工作在数据链路层，流量特征非常明显，出于商业上的考虑（大量在华跨国公司需要用到）所以才还能存活。但是自建的话，L2TP/PP2P/OpenVPN 基本没办法存活多久，只有 Cisco AnyConnect （服务端用开源的 ocserv）还可以用，但是速度有 2M/s 的上限
 10. Shadowsocks，这个名气够大了，不详述
-11. ShadowVPN, [GoHop](https://github.com/bigeagle/gohop), [SoftEther VPN](https://www.softether.org/)，都是具有较为强大加密/混淆功能的 VPN 实现，其中 ShadowVPN 因为作者 clowwindy 被请喝茶而删除项目代码，GoHop 功能强大但暂时只支持 Linux，SoftEther VPN 使用不是很方便，所以目前都不是很流行
+11. ShadowVPN, [GoHop](https://github.com/bigeagle/gohop), [SoftEther VPN](https://www.softether.org/)，都是具有较为强大加密/混淆功能的 VPN 实现，其中 ShadowVPN 因为作者 clowwindy 被请喝茶而删除项目代码，GoHop 功能强大但暂时只支持 Linux，SoftEther VPN 使用不是很方便（而且已经能被 GFW 探测到，见参考链接 13），所以目前都不是很流行
 12. [V2Ray](https://github.com/v2ray/v2ray.github.io/wiki)，新工具，暂不了解
 13. IPv6，据说 GFW 暂时还未能有效封禁 IPv6 地址，所以在教育网里还能通过 IPv6 访问 Google/Facebook 等。不过这个应该只是暂时的
 
@@ -86,13 +86,11 @@ tags:
         4. 这种 TCP 优化机制一直存在争议，因为它实际实际上加剧了网络的拥堵，浪费掉了大量没必要的带宽
     2. [锐速](http://serverspeeder.com/)，比较老牌的 TCP 加速服务，闭源，比 net-speeder 智能，但不支持所有 VPS，闭源还要求 root 权限也让人有点不放心。而且，仍然会增加流量消耗，仍然被认为是不道德的，参见 shadowsocks 作者 clowwindy 在 V2EX 上的[评论](http://v2ex.com/t/164883?p=1#r_1742730)
 
-## 收费翻墙服务
-
-**不建议使用免费服务**
+## 收费翻墙服务（**不建议使用免费服务**）
 
 1. HTTP 代理以及 AnyConnect
 	1. [轻云](http://theqingyun.info/r/2g3wq0)
-	   使用两年，换过两次域名，另外还挂过两次，不过恢复时间较快。如果发现网站上不去了可以发任意内容邮件到 theqingyun@gmail.com 获取最新地址
+	   使用两年，换过两次域名，另外还挂过两次，不过恢复时间较快。如果发现网站上不去了可以发任意内容邮件到 <theqingyun@gmail.com> 获取最新地址
 	2. [土行孙](http://itxs.co/s/b6098a9h)
 	   使用半年，挂过两次。**文档极为完善**，对于不怎么翻墙、不熟悉翻墙工具的小白用户十分友好
 	3. [熊猫翻滚](https://ezcat.xyz/)
@@ -119,3 +117,6 @@ tags:
 12. [How governments have tried to block Tor](https://www.youtube.com/watch?v=GwMr8Xl7JMQ&index=128&list=WL)
 13. [Learning more about the GFW's active probing system](https://blog.torproject.org/blog/learning-more-about-gfws-active-probing-system)
 14. [道高一尺，牆高一丈：互聯網封鎖是如何升級的](https://theinitium.com/article/20150904-mainland-greatfirewall/)
+15. [Empirical Analysis of Internet Filtering in China](http://cyber.law.harvard.edu/filtering/china/appendix-tech.html)
+16. [Golden Shield Project - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Golden_Shield_Project)
+
