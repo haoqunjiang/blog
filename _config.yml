@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://sodatea.github.io
+url: https://sodatea.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -72,17 +72,23 @@ deploy:
   repo: https://github.com/sodatea/sodatea.github.io.git
   branch: master
 
+
+
 theme_config:
+    enforce_ssl_on_domains:
+        - 'sodatea.github.io'
+
     menu:
-        Blog: /
-        Weibo: http://weibo.com/2451315930
-        GitHub: https://github.com/sodatea
-        RSS: /atom.xml
+        blog: /
+        en: https://medium.com/@soda
+        weibo: http://weibo.com/2451315930
+        github: https://github.com/sodatea
+        rss: /atom.xml
 
     disable_mathjax: false
 
     duoshuo: sodatea
-    duoshuo_embed_url: https://nzxbwjjh8.qnssl.com/duoshuo_embed.js
+    duoshuo_embed_url: https://nzxbwjjh8.qnssl.com/duoshuo_embed.js # v15.11.15
 
     # google-analytics:
-    ga:
+    ga: UA-71940984-1
