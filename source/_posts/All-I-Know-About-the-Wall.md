@@ -119,4 +119,5 @@ tags: GFW
 14. [道高一尺，牆高一丈：互聯網封鎖是如何升級的](https://theinitium.com/article/20150904-mainland-greatfirewall/)
 15. [Empirical Analysis of Internet Filtering in China](http://cyber.law.harvard.edu/filtering/china/appendix-tech.html)
 16. [Golden Shield Project - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Golden_Shield_Project)
+17. [“墙”的文献综述](http://xieyi64.blogspot.com/2010/12/blog-post.html)
 
