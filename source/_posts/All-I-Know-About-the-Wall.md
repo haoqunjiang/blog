@@ -22,17 +22,19 @@ tags: GFW
 ## 翻墙方式
 1. hosts，只能翻部分被 DNS 投毒的网站，而且随着 Google IP 被封禁得越来越多，已经很难翻了
 2. 第三方 DNS，作用同 hosts，有风险，可能被再劫持
-3. HTTP proxy，主要风险是明文传输（试过在海外 VPS 直接搭 HTTP 代理，用来上百度没问题，一打开 Google 马上被封）
+3. HTTP 代理，主要风险是明文传输（试过在海外 VPS 直接搭 HTTP 代理，用来上百度没问题，一打开 Google 马上被封）
+4. HTTPS 代理，比起 HTTP 代理，有了一层 SSL 加密，安全许多，但 SSL 其实并不适合用于翻墙，它并不是专用于混淆的协议，shadowsocks 作者 clowwindy 有[一篇文章](https://gist.github.com/clowwindy/5947691)详细阐述了这个观点
 4. Tor，P2P 方式，安全性高。但 GFW 会钓鱼，伪造成 Tor 客户端进入 Tor 网络（[obfsproxy](https://www.torproject.org/projects/obfsproxy.html.en) 可以应对）。本身网络传输速度不快，不好用
 5. Latern 基本同上，就个人使用体验来说，速度太慢
 6. GoAgent，基于 GAE，不过 Google IP 被封得差不多了，所以基本不可用
 7. [GoProxy](https://github.com/phuslu/goproxy)，GoAgent 的继任者，用于自己部署在 VPS 上
 8. SSH，虽然传输安全，但握手阶段特征太明显，会被监控流量和连接数，所以基本只能用一小会儿，一般需要数小时重连一次。2012 年 GFW 加入 DPI 功能之后被封锁得更为严重了，一旦有 HTTP 流量传输就会被墙
-9. VPN，工作在数据链路层，流量特征非常明显，出于商业上的考虑（大量在华跨国公司需要用到）所以才还能存活。但是自建的话，L2TP/PP2P/OpenVPN 基本没办法存活多久，只有 Cisco AnyConnect （服务端用开源的 ocserv）还可以用，但是速度有 2M/s 的上限
-10. Shadowsocks，这个名气够大了，不详述
-11. ShadowVPN, [GoHop](https://github.com/bigeagle/gohop), [SoftEther VPN](https://www.softether.org/)，都是具有较为强大加密/混淆功能的 VPN 实现，其中 ShadowVPN 因为作者 clowwindy 被请喝茶而删除项目代码，GoHop 功能强大但暂时只支持 Linux，SoftEther VPN 使用不是很方便（而且已经能被 GFW 探测到，见参考链接 13），所以目前都不是很流行
-12. [V2Ray](https://github.com/v2ray/v2ray.github.io/wiki)，新工具，暂不了解
-13. IPv6，据说 GFW 暂时还未能有效封禁 IPv6 地址，所以在教育网里还能通过 IPv6 访问 Google/Facebook 等。不过这个应该只是暂时的
+9. VPN，工作在数据链路层，流量特征非常明显，出于商业上的考虑（大量在华跨国公司需要用到）所以才还能存活。但是自建的话，L2TP/PP2P/OpenVPN 基本没办法存活多久，只有 Cisco AnyConnect （服务端用开源的 ocserv）还可以用
+10. [Shadowsocks](https://github.com/shadowsocks)，这个名气够大了，不详述。如有需要，服务端建议部署[shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev)，相比其他语言的实现，这个版本开发更为活跃
+11. [ShadowVPN](https://github.com/Long-live-shadowsocks/ShadowVPN), [GoHop](https://github.com/bigeagle/gohop), [SoftEther VPN](https://www.softether.org/)，都是具有较为强大加密/混淆功能的 VPN 实现，其中 ShadowVPN 因为作者 [clowwindy](https://github.com/clowwindy) 被请喝茶而删除项目代码，GoHop 功能强大但暂时只支持 Linux，SoftEther VPN 使用不是很方便（而且已经能被 GFW 探测到，见参考链接 13），所以目前都不是很流行
+12. [V2Ray](https://www.v2ray.com/zh_cn/index.html)，支持多种代理协议的代理软件包，功能强大
+13. [LightSword](https://github.com/UnsignedInt8/LightSword)，基于 Node.js 的 SOCKS5 代理 / Apple NE 服务器，有 Linux / [iOS](https://itunes.apple.com/cn/app/level.4/id1082115711?ls=1&mt=8) / [OS X](https://itunes.apple.com/cn/app/level.5/id1088733081?ls=1&mt=12) 客户端，其协议参考了 shadowsocks，性能一般，iOS 客户端也只支持全局代理，但聊胜于无
+14. IPv6，据说 GFW 暂时还未能有效封禁 IPv6 地址，所以在教育网里还能通过 IPv6 访问 Google/Facebook 等。不过这个应该只是暂时的
 
 ## 自己搭建无缝无痛的翻墙服务
 1. 翻墙路由器，刷 OpenWrt
@@ -60,24 +62,27 @@ tags: GFW
 5. AnyConnect
     未越狱 iOS 设备，除已下架的 Surge 以外，使用 AnyConnect 是最方便的
 	1. 服务端使用 ocserv
-	2. AnyConnect 用路由表做分流，所以不太精确，而且翻墙后速度最多也只有 2Mbps
+	2. AnyConnect 用路由表做分流，所以不太精确
 	3. ocserv 默认限制路由表最长为 64 条，但其实客户端最长可接受 200 条，所以可以通过修改源代码后编译的方式调整这个上限，参看[这个帖子](https://www.v2ex.com/t/136431)
 	4. [这里](https://github.com/travislee8964/Ocserv-install-script-for-CentOS-RHEL-7)有个 CentOS & RHEL7 的安装脚本（已调整过路由表上限），即使不用这个脚本而自行安装，也可以参考其中给出的路由表
 
-6. Surge
-   iOS 翻墙首选，支持 shadowsocks 代理，支持类 PAC 的配置，支持路由表，支持根据 IP 地址分流。虽然配置麻烦，但是配置好之后可以说是一劳永逸。
-    但是既然已经下架就不多介绍了。
+6. [Surge](https://itunes.apple.com/cn/app/surge-web-developer-tool-proxy/id1040100637?mt=8)
+   iOS / OS X 翻墙首选，支持 http、shadowsocks 代理，支持类 PAC 的配置，支持路由表，支持根据 IP 地址分流，在 OS X 上作为二级 HTTP 代理使用，同时也提供 SOCKS 代理
+   虽然配置麻烦，但是配置好之后可以说是一劳永逸
+   
+   不过 $99 的售价有点让人难以承受
+   
+7. [Potatso](https://itunes.apple.com/cn/app/potatso-zhi-chi-zi-ding-yi/id1070901416?mt=8) / [Shadowrocket](https://itunes.apple.com/cn/app/shadowrocket-for-shadowsocks/id932747118?mt=8)
 
-7. 国际网络线路优化
+    Surge for iOS 的替代品，价格比 Surge 便宜得多
+    
+    总的来说，功能不如 Surge 丰富、稳定性也较 Surge 稍微欠缺，但是基本还是够用的，不想花太多钱在翻墙上的话可以考虑这两者之一
+
+8. 国际网络线路优化
     1. 如果有国内服务器，可以直接用前述 shadowsocks 转 http 代理的方法，也可以直接设置 haproxy 转发 shadowsocks 代理
-	2. 如果不想买国内服务器的话，可以使用 [微林的 vxTrans 服务](https://vnet.link/?rc=18139) 将代理进行端口转发，流量转发至电信 CN2 精品网，解决直连海外 VPS 太慢的问题。
-    但是这里有个坑：
+    2. 如果不想买国内服务器的话，可以使用 [微林的 vxTrans 服务](https://vnet.link/?rc=18139) 将代理进行端口转发，流量转发至电信 CN2 精品网，解决直连海外 VPS 太慢的问题
 
-        > 由于CN2线路是特殊线路，大部分国外ISP运营商由于没有与CN2直接互联，因此为了避免额外的网间结算费用会限制流量而断开链接（特别是国外VPS服务提供商，这种情况很普遍）。
-
-        所以建议使用 AliCloud BGP 线路转发
-
-8. TCP 加速（防丢包）（**不建议使用**）
+9. TCP 加速（防丢包）（**不建议使用**）
 
     1. [net-speeder](https://github.com/snooda/net-speeder)，开源，简单粗暴地通过两倍发包来防止丢包，对丢包严重的网络有一定改善作用，不过有一些缺点：
         1. 双倍发包会造成流量翻倍
@@ -90,11 +95,11 @@ tags: GFW
 
 1. HTTP 代理以及 AnyConnect
 	1. [轻云](http://theqingyun.info/r/2g3wq0)
-	   使用两年，换过两次域名，另外还挂过两次，不过恢复时间较快。如果发现网站上不去了可以发任意内容邮件到 <theqingyun@gmail.com> 获取最新地址
+	   使用两年半，换过两次域名，另外还挂过两次，不过恢复时间较快。如果发现网站上不去了可以发任意内容邮件到 <theqingyun@gmail.com> 获取最新地址
 	2. [土行孙](http://itxs.co/s/b6098a9h)
-	   使用半年，挂过两次。**文档极为完善**，对于不怎么翻墙、不熟悉翻墙工具的小白用户十分友好
+	   使用一年，挂过两次。**文档极为完善**，对于不怎么翻墙、不熟悉翻墙工具的小白用户十分友好，另外学生凭校园邮箱有七折优惠
 	3. [熊猫翻滚](https://ezcat.xyz/)
-	   价格略贵，有[微博客服](http://weibo.com/pandafanorg)，一般没什么问题，但小坑不断，典型的互联网服务。最近因不可抗力挂过一周
+	   价格略贵，有[微博客服](http://weibo.com/pandafanorg)，一般没什么问题，但小坑不断，典型的互联网服务。最近半年挂的次数不少……从微博时间线上就可以看出来
 2. VPN
 	1. [云梯 VPN](https://www.ytvpn.com/)
 	2. [Astrill](https://www.astrill.com/)，目前似乎速度已经不怎么样了，不推荐

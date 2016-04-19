@@ -11,6 +11,8 @@ date: 2016-01-08 12:50:14
 
 这个官方并没有在国内售卖，必须在国外购买和激活。根据两条官方解答：[using the cloud in a unsupported country](https://forums.adobe.com/thread/1023313) 以及 [License Status Check in Non-Subscription Country](https://forums.adobe.com/message/4740738#4740738)，这是不违反授权条款的。
 
+不过，根据[媒体报道](http://cn.engadget.com/2016/01/13/adobe-creative-cloud-china-planning/)，Adobe 官方今年终于计划把 Adobe CC 带到中国，虽然没有说确定的期限，但至少是有个盼头了。
+
 当然，要是你在阿里工作的话，公司有从官方渠道购得的批量授权，可以在工作电脑上使用阿里软件管家申请和下载。
 
 ## Office 365 家庭版
@@ -39,4 +41,3 @@ date: 2016-01-08 12:50:14
 
 都是终身授权，毕业后可继续使用，但部分不适用于商业用途。
 但是麻烦的是，不同途径购买的软件对于教育授权的解释也有矛盾之处，我不清楚是不同经销商授权协议不同还是网站工作人员搞错了还是他们根本就没把授权放在心上。在 Adobe 的[官方 FAQ](http://helpx.adobe.com/cn/x-productkb/policy-pricing/education-faq.html)上，教育授权可被用于商业用途，但如上所述，校园先锋的 FAQ 又是相反的说法。
-
