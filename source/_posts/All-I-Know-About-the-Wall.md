@@ -46,21 +46,22 @@ tags: GFW
 2. 翻墙（HTTP）代理
     在命令行终端里只能通过配置 `http_proxy`/`https_proxy` 变量来翻墙，所以需要一个翻墙代理。而且下述 PAC 文件、运营商描述文件都需要有一个代理作为基础。
     1. HTTP 代理只能用国内服务器中转，直接部署在国外肯定被墙
-	2. 建议在海外服务器部署 shadowsocks 服务端，国内服务器部署 shadowsocks 客户端
-	3. shdaowsocks 代理转 http 代理可用 privoxy / polipo / cow / meow
-	4. privoxy / polipo 生成的代理是纯 HTTP 代理，cow / meow 则会自动学习已翻墙/未翻墙网站并更新列表、生成 PAC 等。但是 cow 因为默认认为网站未被墙，所以很多网站会尝试多次连接才能使用代理，速度有一定影响；而 meow 是白名单模式，可能会影响部分国内网站的加载速度
+    2. 建议在海外服务器部署 shadowsocks 服务端，国内服务器部署 shadowsocks 客户端
+    3. shdaowsocks 代理转 http 代理可用 privoxy / polipo / cow / meow
+    4. privoxy / polipo 生成的代理是纯 HTTP 代理，cow / meow 则会自动学习已翻墙/未翻墙网站并更新列表、生成 PAC 等。但是 cow 因为默认认为网站未被墙，所以很多网站会尝试多次连接才能使用代理，速度有一定影响；而 meow 是白名单模式，可能会影响部分国内网站的加载速度
+    5. Surge for Mac 作为二级代理也非常好用
 
 3. 提供远程 PAC 文件
     Windows / Mac / Linux，以及 iOS / Android 5+ 在 WiFi 网络下都可以配置 PAC 代理，Android 4.x 可以用 SmartProxy 这款 App
     1. 如果没什么特殊需求，最简单的是[利用 gfwlist 生成](http://codelife.me/blog/2013/04/06/convert-gfwlist-to-pac/)，然后开个静态文件的 http 服务以便客户端访问
-	2. 不过更优的方法是[使用 cow 生成的 PAC](https://github.com/cyfdecyf/cow#user-content-详细使用说明)
+    2. 不过更优的方法是[使用 cow 生成的 PAC](https://github.com/cyfdecyf/cow#user-content-详细使用说明)
 
 4. [制作运营商描述文件](https://velaciela.ms/use_apn_connect)
     用于在 2G/3G/4G 下翻墙。不过不是太建议这个方法，根据个人经验，不论设置文件怎么写，总有些时候会出现莫名其妙的问题，到时候就只能删掉描述文件，在需要翻墙时再加回来，很是麻烦
    而且对于使用了 HttpDNS 服务的各大 App 都无法兼容，包括但不仅限于微信朋友圈小视频、阿里旅行、滴滴出行地图、虾米、淘宝电影选座、网易云音乐等
 
 5. AnyConnect
-    未越狱 iOS 设备，除已下架的 Surge 以外，使用 AnyConnect 是最方便的
+    未越狱 iOS 设备，所有免费方案中，AnyConnect 是最方便的
 	1. 服务端使用 ocserv
 	2. AnyConnect 用路由表做分流，所以不太精确
 	3. ocserv 默认限制路由表最长为 64 条，但其实客户端最长可接受 200 条，所以可以通过修改源代码后编译的方式调整这个上限，参看[这个帖子](https://www.v2ex.com/t/136431)
