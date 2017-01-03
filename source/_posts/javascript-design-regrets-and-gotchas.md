@@ -405,8 +405,6 @@ false
 
 原因是抽象关系比较算法中，左右值在一定情况下会先 ToNumber，而抽象相等比较时则不会做转换，所以造成了这种情况。
 
-具体可以看[这篇 ATA 文章](http://www.atatech.org/articles/49067)
-
 ## `prototype`
 
 `prototype` 有两个槽点。
