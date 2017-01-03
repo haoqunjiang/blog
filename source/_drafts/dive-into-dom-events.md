@@ -13,6 +13,7 @@ tags: DOM, W3C, Compatibility, jQuery, Events
 
 ## Capture, Target, Bubble & Compatibility
 
+## Passive Events
 
 ## Delegation
 
@@ -25,10 +26,12 @@ include a perf of delegation
 ## Custom Events
 
 
-## Node.js Events, EventEmitter
 
+## Other So-called "Events"
 
-## More: Event Loop...
+### Node.js Events, EventEmitter
+
+### More: Event Loop...
 
 
 ## refs

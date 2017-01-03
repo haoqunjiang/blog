@@ -26,7 +26,7 @@ tags: GFW
 4. HTTPS 代理，比起 HTTP 代理，有了一层 SSL 加密，安全许多，但 SSL 其实并不适合用于翻墙，它并不是专用于混淆的协议，shadowsocks 作者 clowwindy 有[一篇文章](https://gist.github.com/clowwindy/5947691)详细阐述了这个观点
 4. Tor，P2P 方式，安全性高。但 GFW 会钓鱼，伪造成 Tor 客户端进入 Tor 网络（[obfsproxy](https://www.torproject.org/projects/obfsproxy.html.en) 可以应对）。本身网络传输速度不快，不好用
 5. Latern 基本同上，就个人使用体验来说，速度太慢
-6. GoAgent，基于 GAE，不过 Google IP 被封得差不多了，所以基本不可用
+6. GoAgent，基于 GAE，已经不再维护
 7. [GoProxy](https://github.com/phuslu/goproxy)，GoAgent 的继任者，用于自己部署在 VPS 上
 8. SSH，虽然传输安全，但握手阶段特征太明显，会被监控流量和连接数，所以基本只能用一小会儿，一般需要数小时重连一次。2012 年 GFW 加入 DPI 功能之后被封锁得更为严重了，一旦有 HTTP 流量传输就会被墙
 9. VPN，工作在数据链路层，流量特征非常明显，出于商业上的考虑（大量在华跨国公司需要用到）所以才还能存活。但是自建的话，L2TP/PP2P/OpenVPN 基本没办法存活多久，只有 Cisco AnyConnect （服务端用开源的 ocserv）还可以用
@@ -36,7 +36,7 @@ tags: GFW
 13. [LightSword](https://github.com/UnsignedInt8/LightSword)，基于 Node.js 的 SOCKS5 代理 / Apple NE 服务器，有 Linux / [iOS](https://itunes.apple.com/cn/app/level.4/id1082115711?ls=1&mt=8) / [OS X](https://itunes.apple.com/cn/app/level.5/id1088733081?ls=1&mt=12) 客户端，其协议参考了 shadowsocks，性能一般，iOS 客户端也只支持全局代理，但聊胜于无
 14. IPv6，据说 GFW 暂时还未能有效封禁 IPv6 地址，所以在教育网里还能通过 IPv6 访问 Google/Facebook 等。不过这个应该只是暂时的
 
-## 自己搭建无缝无痛的翻墙服务
+## 自建翻墙服务指南
 1. 翻墙路由器，刷 OpenWrt
     用于自己在家上网。
 	1. VPN / shadowsocks + [chnroutes](https://github.com/fivesheep/chnroutes) / [cow](https://github.com/cyfdecyf/cow) / [meow](https://github.com/renzhn/MEOW) 自动分流国内外 IP
@@ -61,38 +61,57 @@ tags: GFW
    而且对于使用了 HttpDNS 服务的各大 App 都无法兼容，包括但不仅限于微信朋友圈小视频、阿里旅行、滴滴出行地图、虾米、淘宝电影选座、网易云音乐等
 
 5. AnyConnect
-    未越狱 iOS 设备，所有免费方案中，AnyConnect 是最方便的
+    未越狱 iOS 设备，所有**免费**方案中，AnyConnect 是最方便的
 	1. 服务端使用 ocserv
 	2. AnyConnect 用路由表做分流，所以不太精确
 	3. ocserv 默认限制路由表最长为 64 条，但其实客户端最长可接受 200 条，所以可以通过修改源代码后编译的方式调整这个上限，参看[这个帖子](https://www.v2ex.com/t/136431)
 	4. [这里](https://github.com/travislee8964/Ocserv-install-script-for-CentOS-RHEL-7)有个 CentOS & RHEL7 的安装脚本（已调整过路由表上限），即使不用这个脚本而自行安装，也可以参考其中给出的路由表
 
-6. [Surge](https://itunes.apple.com/cn/app/surge-web-developer-tool-proxy/id1040100637?mt=8)
-   iOS / OS X 翻墙首选，支持 http、shadowsocks 代理，支持类 PAC 的配置，支持路由表，支持根据 IP 地址分流，在 OS X 上作为二级 HTTP 代理使用，同时也提供 SOCKS 代理
+6. [Surge](http://nssurge.com/)
+   iOS / OS X 翻墙首选，支持 http、shadowsocks 代理，支持类 PAC 的配置，支持路由表，支持根据 IP 地址分流，在 OS X 上作为二级 HTTP 代理使用，同时也提供 SOCKS 代理，另外还支持抓包，可以当做网络调试工具使用，功能非常非常强大
    虽然配置麻烦，但是配置好之后可以说是一劳永逸
    
-   不过 $99 的售价有点让人难以承受
+   不过 iOS、Mac 版各 $49.99 起的价格还是有点贵
    
-7. [Potatso](https://itunes.apple.com/cn/app/potatso-zhi-chi-zi-ding-yi/id1070901416?mt=8) / [Shadowrocket](https://itunes.apple.com/cn/app/shadowrocket-for-shadowsocks/id932747118?mt=8)
+7. [Potatso](https://itunes.apple.com/cn/app/potatso-zhi-chi-zi-ding-yi/id1070901416?mt=8)
 
-    Surge for iOS 的替代品，价格比 Surge 便宜得多
+    Surge for iOS 的替代品，价格比 Surge 便宜得多，且[开源](https://github.com/shadowsocks/Potatso)
     
-    总的来说，功能不如 Surge 丰富、稳定性也较 Surge 稍微欠缺，但是基本还是够用的，不想花太多钱在翻墙上的话可以考虑这两者之一
+    虽然功能还不如 Surge 丰富，但是基本还是够用的，不想花太多钱在翻墙上的话可以考虑
+    
+8. 免费 shadowsocks 客户端
 
-8. 国际网络线路优化
+    - [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases)
+    - [Wingy](https://www.wingy.site/appstore.html)
+        iOS 下的免费 shadowsocks 客户端，没有什么定制化需求的话用这个就够了
+    - [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)
+        Mac 客户端
+    - [Shadowsocks for Windows](https://github.com/shadowsocks/shadowsocks-windows)
+    - [Shadowsocks-Qt5](https://github.com/shadowsocks/shadowsocks-qt5) Windows / Linux 客户端
+
+9. 国际网络线路优化
     1. 如果有国内服务器，可以直接用前述 shadowsocks 转 http 代理的方法，也可以直接设置 haproxy 转发 shadowsocks 代理
     2. 如果不想买国内服务器的话，可以使用 [微林的 vxTrans 服务](https://vnet.link/?rc=18139) 将代理进行端口转发，流量转发至电信 CN2 精品网，解决直连海外 VPS 太慢的问题
 
-9. TCP 加速（防丢包）（**不建议使用**）
+10. TCP 加速（防丢包）
 
     1. [net-speeder](https://github.com/snooda/net-speeder)，开源，简单粗暴地通过两倍发包来防止丢包，对丢包严重的网络有一定改善作用，不过有一些缺点：
         1. 双倍发包会造成流量翻倍
         2. net-speeder 会造成 pptpd 等不支持双倍发包的网络软件无法正常使用
         3. 对小文件加速效果不明显
         4. 这种 TCP 优化机制一直存在争议，因为它实际实际上加剧了网络的拥堵，浪费掉了大量没必要的带宽
+
+        所以**不建议使用**
+
     2. [锐速](http://serverspeeder.com/)，比较老牌的 TCP 加速服务，闭源，比 net-speeder 智能，但不支持所有 VPS，闭源还要求 root 权限也让人有点不放心。而且，仍然会增加流量消耗，仍然被认为是不道德的，参见 shadowsocks 作者 clowwindy 在 V2EX 上的[评论](http://v2ex.com/t/164883?p=1#r_1742730)
+    3. [TCP BBR](https://www.zhihu.com/question/53559433)，Linux Kernel 4.9+ 支持，效果还是不错的，公平性暂不了解
+    4. [kcptun](https://github.com/xtaci/kcptun)
 
 ## 收费翻墙服务（**不建议使用免费服务**）
+
+目前只推荐 BlackSSL
+
+<!--
 
 1. HTTP 代理以及 AnyConnect
 	1. [轻云](http://theqingyun.info/r/2g3wq0)
@@ -107,6 +126,8 @@ tags: GFW
 	3. [VyprVPN](https://www.goldenfrog.com/vyprvpn)
 3. [EurekaVPT](https://eurekavpt.com/)
     没用过，口碑不错，价格略贵，需要邀请
+
+-->
 
 ## 参考链接
 1. [阅后即焚：“GFW”](http://www.chinagfw.org/2009/08/gfw_30.html)

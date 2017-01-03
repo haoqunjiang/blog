@@ -39,15 +39,24 @@ This presentation will focus on TypeScript and its tooling.
 
 ## SoundScript Extensions
 
+## Flow vs TypeScript 1.x (Nullability, Soundness, Syntax)
+
+## Flow vs TypeScript 2.x
+
 ## Tooling
 
 ### TypeScript CLI
 
-### TSD
+### typings
 
-### Flow
+### flow
+
+### npm
 
 ### TSLint
 
-### Visual Studio, Visual Studio Code, Sublime Text Plugins, Atom Editor Plugins
+### ESLint
+
+### WebStorm, Visual Studio, Visual Studio Code, Sublime Text Plugins, Atom Editor Plugins
+
 
