@@ -1,5 +1,5 @@
-title: JavaScript 的设计失误（历史、现状以及未来）
-tags: 'javascript, esnext, history'
+title: JavaScript 的设计失误
+tags: javascript, esnext, history
 date: 2016-07-14 17:43:38
 ---
 
