@@ -4,7 +4,7 @@ tags: GFW
 ---
 
 ## GFW 的封锁方法
-1. 国内 DNS 服务器的缓存污染
+1. [国内 DNS 服务器的缓存污染](https://censorbib.nymity.ch/pdf/Farnan2016a.pdf)
 2. 发往国外的 DNS 解析请求的拦截或篡改
 3. IP 黑名单
 4. 端口封锁，针对 OpenVPN，SSH，shadowsocks 等，有用到 DPI，多次换端口后封 IP

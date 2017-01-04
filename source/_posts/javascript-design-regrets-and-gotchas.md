@@ -3,6 +3,8 @@ tags: javascript, esnext, history
 date: 2016-07-14 17:43:38
 ---
 
+9 月份的时候在腾讯的 IMWeb Conf 上做过一次分享，如果嫌文章太长太乱的话可以去 GitHub 上看 [Slides](https://github.com/imweb/IMWeb-Conf-ppt/blob/master/%E3%80%8AJavascript%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%A4%B1%E8%AF%AF%E3%80%8B-%E8%92%8B%E8%B1%AA%E7%BE%A4.pdf)
+
 
 ## `typeof null === 'object'`
 
